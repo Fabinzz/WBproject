@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WB Acessoria</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/form.css">
+</head>
+
+<body>
+    <header>
+        <nav class="menu">
+            <a class="logo">WELCOME2BRAZIL</a>
+            <div class="menu-list">
+               
+                <a href="index.html">Início</a>
+                <a href="#">Serviços</a>
+                <a href="#">Contato</a>
+
+                <div class="dropdown">
+                    <button class="dropbtn">como funciona?</button>
+                    <div class="dropdown-content">
+                        <a href="docExigidos.html">Documentos</a>
+                        <a href="lerContrato.html">Contrato</a>
+                        <a href="processo.html">Processos</a>
+                        <a href="pagamento.html">Pagamento</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <button class="dropbtn">Administrador</button>
+                    <div class="dropdown-content">
+                        <a href="#">Clientes</a>
+                        <a href="processo.html">Processos</a>
+                        <a href="pagamento.html">Pagamentos</a>
+                    </div>
+                </div>
+
+                <div class="dropdown" style="display: none;">
+                    <button class="dropbtn">Idiomas</button>
+                    <div class="dropdown-content">
+                        <a href="#">Português</a>
+                        <a href="#">Inglês</a>
+                        <a href="#">Espanhol</a>
+                        <a href="#">Francês</a>
+                        <a href="#">Persa</a>
+                    </div>
+                </div>
+                
+            </div>
+            <a class="login" href="login.html">Entrar</a>
+        </nav>
+    </header>
+   
+    <section class="centralize">
+            <form id="login-form" action="" method="POST">
+                <input type="hidden" name="action" value="loginUser">
+                <h1 class="">Login</h1>
+    
+                <label for="cpf">CPF:</label>
+                <input type="cpf" name="user_cpf" id="cpf" placeholder="Digite o cpf.." required>
+                <span class="valid">Digite um cpf válido!</span>
+               
+    
+                <label for="senha">Senha:</label>
+                <input type="password" name="user_password" id="senha" placeholder="Digite a senha.." required>
+                
+                <input id="login-button" type="submit" value="Entrar">
+                <div class="form-links">
+                <a href="#">esqueceu a senha?</a>
+                <a href="register.html">cadastrar</a>
+                </div>
+            </form>
+    </section>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+.termos-de-uso {
+    width: 100%;
+    max-width: 800px; /* Defina a largura máxima da div */
+    margin: 20px auto; /* Centraliza horizontalmente */
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    padding: 20px;
+    font-size: 16px; /* Tamanho da fonte */
+    line-height: 1.6; /* Altura da linha */
+  }
+  
+  .termos-de-uso h4 {
+    font-size: 20px; /* Tamanho da fonte do título */
+    margin-bottom: 15px; /* Espaçamento abaixo do título */
+  }
+  
+  .termos-de-uso ol {
+    padding-left: 20px; /* Recuo da lista */
+  }
+  
+  .termos-de-uso li {
+    margin-bottom: 15px; /* Espaçamento entre os itens */
+  }
+  

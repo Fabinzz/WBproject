@@ -1,0 +1,81 @@
+#login-form, #register-form,#editClientForm{
+    margin-top: 100px;
+    padding: 150px 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column wrap;
+    width: auto;
+    border: solid 3px var(--secondaryYellow);
+    border-radius: 15px;
+    background-color: var(--primaryWhite);
+    box-shadow:0px 0px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 10vh;
+}
+
+#login-form h1,#register-form h1,#editClientForm h1{
+font-size: 64px;
+color: var(--primaryYellow);
+text-transform: uppercase;
+}
+
+#login-form label, #register-form label,#editClientForm label{
+    font-weight: 600;
+    width: 100%;
+    text-align: left;
+    padding: 8px;
+    margin-left: 5px;
+    float: left;
+}
+
+#name, #email, #phone, #password, #cpf{
+    width: 100%;
+    height: 40px;
+    padding: 12px 20px;
+    margin-bottom: 30px;
+    font-size: 16px;
+    border-radius: 15px;
+    float: left;
+    border: none;
+    outline: none;
+    box-shadow:0px 0px 10px rgba(0, 0, 0, 0.2);
+    transition: 0.2s;
+    font-family: "Poppins", sans-serif;
+    
+}
+
+#login-button,#register-button{
+    width: 100%;
+    color: var(--primaryYellow);
+    background-color: var(--primaryWhite);
+    border:1px solid var(--primaryYellow);
+    height: 40px;
+    border-radius: 15px;
+    font-size: 22px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+#login-button:hover,#register-button:hover{
+    
+    color: var(--primaryWhite);
+    background-color: var(--primaryYellow);
+    border:1px solid var(--primaryYellow);
+}
+
+#name:focus, #email:focus, #phone:focus,#cpf:focus,#password:focus{
+	 border: 3px solid var(--primaryYellow); 
+}
+.form-links a{
+    margin-top: 40px;
+    padding: 20px 20px;
+    color: #1d4ed8;
+    text-decoration: none;
+}
+.validIn{
+    color: red;
+    border: 1px solid red;
+}
+.valid{
+    color: red;
+}

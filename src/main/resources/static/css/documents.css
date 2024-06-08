@@ -1,0 +1,21 @@
+.documentos-exigidos {
+    width: 100%;
+    max-width: 800px; /* Defina a largura máxima da div */
+    margin: 20px auto; /* Centraliza horizontalmente */
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    padding: 20px;
+    font-size: 22px; /* Tamanho da fonte */
+    line-height: 1.6; /* Altura da linha */
+  }
+  
+  .documentos-exigidos ul {
+    padding-left: 20px; /* Recuo da lista */
+  }
+  
+  .documentos-exigidos li {
+    margin-bottom: 15px; /* Espaçamento entre os itens */
+  }
+  

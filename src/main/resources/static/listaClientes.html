@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WB Acessoria</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/list.css">
+    <script src="js/translation.js"></script>
+    <script src="js/main.js"></script>
+</head>
+
+<body>
+    <header>
+        <nav class="menu">
+            <a class="logo">WELCOME2BRAZIL</a>
+            <div class="menu-list">
+               
+                <a href="index.html" id="navHome">Início</a>
+                <a href="#" id="navServ">Serviços</a>
+
+                <div class="dropdown">
+                    <button class="dropbtn" id="navHowItWork">Como funciona?</button>
+                    <div class="dropdown-content">
+                        <a href="docExigidos.html" id="navDocs">Documentos</a>
+                        <a href="lerContrato.html" id="navContact">Contrato</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <button class="dropbtn" id="navAdm">Administrador</button>
+                    <div class="dropdown-content">
+                        <a href="listaClientes.html" id="navClients">Clientes</a>
+                        <a href="processo.html" id="navProcesses">Processos</a>
+                        <a href="pagamento.html" id="navPayments">Pagamentos</a>
+                    </div>
+                </div>
+
+                <div class="dropdown" >
+                    <select onchange="event" id="select">
+                        <option value="pt" id="navOptionPt">Português</option>
+                        <option value="en" id="navOptionEn">Inglês</option>
+                        <option value="es" id="navOptionEs">Espanhol</option>
+                        <!-- <option>Francês</a> 
+                        <option>Persa</a>-->
+                        </select>
+                </div>
+                
+            </div>
+            <div class="auth-links">
+                <a class="login" id="accountLink" href="account.html">Minha conta</a>
+                <a class="login" id="loginLink" href="login.html">Entrar</a>
+            </div>
+        </nav>
+    </header>
+    <!-- <header>
+        <nav class="menu">
+            <a class="logo">WELCOME2BRAZIL</a>
+            <div class="menu-list">
+               
+                <a href="index.html">Início</a>
+                <a href="#">Serviços</a>
+                <a href="#">Contato</a>
+
+                <div class="dropdown">
+                    <button class="dropbtn">como funciona?</button>
+                    <div class="dropdown-content">
+                        <a href="docExigidos.html">Documentos</a>
+                        <a href="lerContrato.html">Contrato</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <button class="dropbtn">Administrador</button>
+                    <div class="dropdown-content">
+                        <a href="#">Clientes</a>
+                        <a href="processo.html">Processos</a>
+                        <a href="pagamento.html">Pagamentos</a>
+                    </div>
+                </div>
+
+                <div class="dropdown" >
+                    <select onchange="event" id="select">
+                        <option value="pt">Português</option>
+                        <option value="en">Inglês</option>
+                        <option value="es">Espanhol</option>
+                         <option>Francês</a> 
+                        <option>Persa</a>
+                        </select>
+                </div>
+                
+            </div>
+            <a class="login" href="login.html">Entrar</a>
+        </nav>
+    </header> -->
+<div class="centralize" style="margin-top: 10vh;">
+	<h1>Lista de clientes</h1>
+	</div>
+	<button class="btn btn-insert" onclick="window.location.href='register.html'">Inserir Cliente</button>
+	<table id="clientTable">
+	    <thead>
+	        <tr>
+	            <th>ID</th>
+				<th>CPF</th>
+	            <th>Nome</th>
+	            <th>Email</th>
+	            <th>Telefone</th>
+	            <th>Senha</th>
+	       
+	            <th>Operações</th>
+	        </tr>
+	    </thead>
+	    <tbody>
+	        <!-- Client rows will be inserted here by JavaScript -->
+	    </tbody>
+	</table>
+
+	<script>
+	    const baseUrl = 'http://localhost:8080/clients'; // Altere a URL conforme necessário
+
+	    async function getAllClients() {
+	        try {
+	            const response = await fetch(baseUrl);
+	            const clients = await response.json();
+	            const tableBody = document.getElementById('clientTable').querySelector('tbody');
+	            tableBody.innerHTML = ''; // Limpa a tabela antes de adicionar novas linhas
+	            
+	            clients.forEach(client => {
+	                const row = document.createElement('tr');
+	                row.innerHTML = `
+	                    <td>${client.id}</td>
+						<td>${client.cpf}</td>
+	                    <td>${client.name}</td>
+	                    <td>${client.email}</td>
+	                    <td>${client.phone}</td>
+	                    <td>${client.password}</td>
+	               
+	                    <td>
+	                        <button class="btn btn-edit" onclick="editClient('${client.id}')">Editar</button>
+	                        <button class="btn btn-delete" onclick="deleteClient('${client.id}')">Excluir</button>
+	                    </td>
+	                `;
+	                tableBody.appendChild(row);
+	            });
+	        } catch (error) {
+	            console.error('Error fetching all clients:', error);
+	        }
+	    }
+
+	    function editClient(id) {
+	        window.location.href = `edit.html?id=${id}`;
+	    }
+
+	    async function deleteClient(id) {
+	        if (confirm("Are you sure you want to delete this client?")) {
+	            try {
+	                const response = await fetch(`${baseUrl}/${id}`, {
+	                    method: 'DELETE'
+	                });
+
+	                if (response.ok) {
+	                    alert("Client deleted successfully");
+	                    getAllClients(); // Atualiza a lista de clientes
+	                } else {
+	                    alert("Failed to delete client");
+	                }
+	            } catch (error) {
+	                console.error(`Error deleting client with ID ${id}:`, error);
+	            }
+	        }
+	    }
+
+	    // Chama a função para buscar e exibir todos os clientes ao carregar a página
+	    window.onload = getAllClients;
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WB Acessoria</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/form.css">
+</head>
+
+<body>
+    <header>
+        <nav class="menu">
+            <a class="logo">WELCOME2BRAZIL</a>
+            <div class="menu-list">
+               
+                <a href="index.html">Início</a>
+                <a href="#">Serviços</a>
+                <a href="#">Contato</a>
+
+                <div class="dropdown">
+                    <button class="dropbtn">como funciona?</button>
+                    <div class="dropdown-content">
+                        <a href="docExigidos.html">Documentos</a>
+                        <a href="lerContrato.html">Contrato</a>
+                        <a href="processo.html">Processos</a>
+                        <a href="pagamento.html">Pagamento</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <button class="dropbtn">Administrador</button>
+                    <div class="dropdown-content">
+                        <a href="#">Clientes</a>
+                        <a href="processo.html">Processos</a>
+                        <a href="pagamento.html">Pagamentos</a>
+                    </div>
+                </div>
+
+                <div class="dropdown" style="display: none;">
+                    <button class="dropbtn">Idiomas</button>
+                    <div class="dropdown-content">
+                        <a href="#">Português</a>
+                        <a href="#">Inglês</a>
+                        <a href="#">Espanhol</a>
+                        <a href="#">Francês</a>
+                        <a href="#">Persa</a>
+                    </div>
+                </div>
+                
+            </div>
+        </nav>
+    </header>
+   
+    <section class="centralize">
+            <form id="editClientForm" >
+                <h1 class="">Editar</h1>
+				<input type="hidden" id="clientId" name="clientId">
+                <label for="name">Nome completo:</label>
+                <input type="text" name="name" id="name" placeholder="Digite o nome completo.." required>
+    
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email" placeholder="Digite o email.." required>
+                    
+                <label for="password">Senha:</label>
+                <input type="password" name="password" id="password" placeholder="Digite a senha.." required>
+                    
+                <label for="phone">Telefone:</label>
+                <input type="tel" name="phone" id="phone" placeholder="Digite o numero de telefone.." required>
+
+                <label for="cpf">CPF:</label>
+                <input type="cpf" name="cpf" id="cpf" placeholder="Digite o cpf.." required>
+
+                    
+                <input id="register-button" type="submit" >
+            </form>
+		
+    </section>
+	<script>
+	       const baseUrl = 'http://localhost:8080/clients'; // Altere a URL conforme necessário
+
+	       document.addEventListener('DOMContentLoaded', async () => {
+	           const urlParams = new URLSearchParams(window.location.search);
+	           const clientId = urlParams.get('id');
+
+	           if (clientId) {
+	               try {
+	                   const response = await fetch(`${baseUrl}/${clientId}`);
+	                   const client = await response.json();
+
+					  document.getElementById('cpf').value = client.cpf;
+	                   document.getElementById('name').value = client.name;
+	                   document.getElementById('email').value = client.email;
+	                   document.getElementById('phone').value = client.phone;
+	                   document.getElementById('password').value = client.password;
+	                 
+	                   document.getElementById('clientId').value = client.id;
+	               } catch (error) {
+	                   console.error('Error fetching client data:', error);
+	               }
+	           }
+
+	           document.getElementById('editClientForm').addEventListener('submit', async (event) => {
+	               event.preventDefault();
+
+	               const clientId = document.getElementById('clientId').value;
+				  const cpf = document.getElementById('cpf').value;
+	               const name = document.getElementById('name').value;
+	               const email = document.getElementById('email').value;
+	               const phone = document.getElementById('phone').value;
+	               const password = document.getElementById('password').value;
+	            
+
+	               if (clientId && name && email && cpf) {
+	                   try {
+	                       const response = await fetch(`${baseUrl}/${clientId}`, {
+	                           method: 'PUT',
+	                           headers: {
+	                               'Content-Type': 'application/json'
+	                           },
+	                           body: JSON.stringify({ name, email, cpf })
+	                       });
+
+	                       if (response.ok) {
+	                           alert("Client updated successfully");
+	                           window.location.href = 'index.html';
+	                       } else {
+	                           alert("Failed to update client");
+	                       }
+	                   } catch (error) {
+	                       console.error('Error updating client:', error);
+	                   }
+	               } else {
+	                   alert("All fields are required");
+	               }
+	           });
+	       });
+	   </script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+.caixa-imigracao {
+    width: 100%;
+    max-width: 800px; /* Defina a largura máxima da div */
+    margin: 20px auto; /* Centraliza horizontalmente */
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    padding: 20px;
+  }
+  
+  .caixa-imigracao ul {
+    margin: 0;
+    padding: 8px 0;
+    border-bottom: 1px solid #ddd;
+    font-size: 22px;
+  }
+  
+  .caixa-imigracao ul:last-child {
+    border-bottom: none; /* Remove a borda inferior da última linha */
+  }
+  
+  .span-opcoes {
+    font-weight: bold;
+  }
+  
+  .span-status {
+    color: #3498db; /* Cor azul para indicar status de em andamento */
+  }
+  

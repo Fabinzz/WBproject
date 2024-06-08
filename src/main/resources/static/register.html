@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WB Acessoria</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/form.css">
+</head>
+
+<body>
+    <header>
+        <nav class="menu">
+            <a class="logo">WELCOME2BRAZIL</a>
+            <div class="menu-list">
+               
+                <a href="index.html">Início</a>
+                <a href="#">Serviços</a>
+                <a href="#">Contato</a>
+
+                <div class="dropdown">
+                    <button class="dropbtn">como funciona?</button>
+                    <div class="dropdown-content">
+                        <a href="docExigidos.html">Documentos</a>
+                        <a href="lerContrato.html">Contrato</a>
+                        <a href="processo.html">Processos</a>
+                        <a href="pagamento.html">Pagamento</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <button class="dropbtn">Administrador</button>
+                    <div class="dropdown-content">
+                        <a href="#">Clientes</a>
+                        <a href="processo.html">Processos</a>
+                        <a href="pagamento.html">Pagamentos</a>
+                    </div>
+                </div>
+
+                <div class="dropdown" style="display: none;">
+                    <button class="dropbtn">Idiomas</button>
+                    <div class="dropdown-content">
+                        <a href="#">Português</a>
+                        <a href="#">Inglês</a>
+                        <a href="#">Espanhol</a>
+                        <a href="#">Francês</a>
+                        <a href="#">Persa</a>
+                    </div>
+                </div>
+                
+            </div>
+            <a class="login" href="login.html">Entrar</a>
+        </nav>
+    </header>
+   
+    <section class="centralize">
+            <form id="register-form" >
+                <input type="hidden" name="action" value="registerUser">
+                <h1 class="">cadastrar</h1>
+    
+                <label for="name">Nome completo:</label>
+                <input type="text" name="name" id="name" placeholder="Digite o nome completo.." required>
+    
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email" placeholder="Digite o email.." required>
+                    
+                <label for="password">Senha:</label>
+                <input type="password" name="password" id="password" placeholder="Digite a senha.." required>
+                    
+                <label for="phone">Telefone:</label>
+                <input type="tel" name="phone" id="phone" placeholder="Digite o numero de telefone.." required>
+
+                <label for="cpf">CPF:</label>
+                <input type="cpf" name="cpf" id="cpf" placeholder="Digite o cpf.." required>
+
+                    
+                <input id="register-button" type="submit" >
+               
+            </form>
+		
+    </section>
+	<script>
+	       const baseUrl = 'http://localhost:8080/clients'; // Altere a URL conforme necessário
+
+	       document.getElementById('register-form').addEventListener('submit', async (event) => {
+	           event.preventDefault();
+
+	           const name = document.getElementById('name').value;
+	           const email = document.getElementById('email').value;
+	           const cpf = document.getElementById('cpf').value;
+	           const phone = document.getElementById('phone').value;
+	           const password = document.getElementById('password').value;
+
+	           if (name && email && cpf && phone && password) {
+	               try {
+	                   const response = await fetch(baseUrl, {
+	                       method: 'POST',
+	                       headers: {
+	                           'Content-Type': 'application/json'
+	                       },
+	                       body: JSON.stringify({ name, email, cpf, phone, password })
+	                   });
+
+	                   if (response.ok) {
+	                       alert("Client inserted successfully");
+	                       window.location.href = 'index.html';
+	                   } else {
+	                       alert("Failed to insert client");
+	                   }
+	               } catch (error) {
+	                   console.error('Error inserting client:', error);
+	               }
+	           } else {
+	               alert("All fields are required");
+	           }
+	       });
+	   </script>
+</body>
+
+</html>
