@@ -85,7 +85,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
     let homeSub = document.getElementById("homeSub");
     const navElements = {
         navHome: document.getElementById("navHome"),
-        navServ: document.getElementById("navServ"),
         navHowItWork: document.getElementById("navHowItWork"),
         navDocs: document.getElementById("navDocs"),
         navContact: document.getElementById("navContact"),
@@ -110,7 +109,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
     const setLanguage = (language) => {
         if (translations[language]) {
             navElements.navHome.innerHTML = translations[language].navHome;
-            navElements.navServ.innerHTML = translations[language].navServ;
             navElements.navHowItWork.innerHTML = translations[language].navHowItWork;
             navElements.navDocs.innerHTML = translations[language].navDocs;
             navElements.navContact.innerHTML = translations[language].navContact;
@@ -143,10 +141,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
         setLanguage(event.target.value);
     });
 
-    // Recupera a linguagem salva no localStorage, se existir
+    
     const savedLanguage = localStorage.getItem('selectedLanguage');
     if (savedLanguage) {
-        languageSelected.value = savedLanguage; // Define a opção selecionada no select
-        setLanguage(savedLanguage); // Atualiza o conteúdo da página
+        languageSelected.value = savedLanguage;
+        setLanguage(savedLanguage); 
     }
 });

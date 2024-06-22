@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WB Acessoria</title>
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/contact.css">
     <script src="js/translation.js"></script>
     <script src="js/main.js"></script>
 </head>
@@ -17,7 +18,7 @@
             <div class="menu-list">
                
                 <a href="index.html" id="navHome">Início</a>
-                <a href="#" id="navServ">Serviços</a>
+                <!-- <a href="#" id="navServ">Serviços</a> -->
 
                 <div class="dropdown">
                     <button class="dropbtn" id="navHowItWork">Como funciona?</button>
@@ -41,59 +42,17 @@
                         <option value="pt" id="navOptionPt">Português</option>
                         <option value="en" id="navOptionEn">Inglês</option>
                         <option value="es" id="navOptionEs">Espanhol</option>
-                        <!-- <option>Francês</a> 
-                        <option>Persa</a>-->
                         </select>
                 </div>
                 
             </div>
             <div class="auth-links">
-                <a class="login" id="accountLink" href="account.html">Minha conta</a>
+                <!-- <a class="login" id="accountLink" href="account.html">Minha conta</a> -->
                 <a class="login" id="loginLink" href="login.html">Entrar</a>
             </div>
         </nav>
     </header>
-    <!-- <header>
-        <nav class="menu">
-            <a class="logo">WELCOME2BRAZIL</a>
-            <div class="menu-list">
-               
-                <a href="index.html">Início</a>
-                <a href="#">Serviços</a>
-                <a href="#">Contato</a>
-
-                <div class="dropdown">
-                    <button class="dropbtn">como funciona?</button>
-                    <div class="dropdown-content">
-                        <a href="docExigidos.html">Documentos</a>
-                        <a href="lerContrato.html">Contrato</a>
-                    </div>
-                </div>
-
-                <div class="dropdown">
-                    <button class="dropbtn">Administrador</button>
-                    <div class="dropdown-content">
-                        <a href="#">Clientes</a>
-                        <a href="processo.html">Processos</a>
-                        <a href="pagamento.html">Pagamentos</a>
-                    </div>
-                </div>
-
-                <div class="dropdown" >
-                    <select onchange="event" id="select">
-                        <option value="pt">Português</option>
-                        <option value="en">Inglês</option>
-                        <option value="es">Espanhol</option>
-                         <option>Francês</a> 
-                        <option>Persa</a>
-                        </select>
-                </div>
-                
-            </div>
-            <a class="login" href="login.html">Entrar</a>
-        </nav>
-    </header> -->
-
+   
     <div class="title">
         <h1 id="homeHeader">Se você busca o processo de naturalização, a <span>WELCOME2BRAZIL</span> é a escolha certa!</h1>
         <h2 id="homeSub">Focados em prestar o melhor serviço com expertise profissional</h2>
@@ -142,14 +101,24 @@
         </div>
     </section>
 
-    <div class="telas">
-    <h1>tela de cadastro</h1>
-    <h1>tela de login para os clientes</h1>
-    <h1>tela de cadastro para os clientes</h1>
-    <h1>tela para mostrar o progresso do cliente</h1>
-    <h1>tela para o cliente ler e assinar o contrato</h1>
-    <h1>tela com explicações sobre a documentação, processo e sua importancia</h1>
-    </div>
+    <section class="contact-form">
+        <form class="form">
+            <input type="hidden" name="action" value="">
+            <h1 class="formH1">contato</h1>
+            <p class="formP">Envie-nos um email com suas duvidas ou descrevendo problemas.</p>
+
+            <label for="email">Email:</label>
+            <input type="email" name="user_email" id="email" placeholder="Digite o e-mail.." required="">
+           
+
+            <label for="message">Mensagem</label>
+            <textarea id="message" name="message"></textarea>
+            
+            <input id="login-button" type="submit" value="confirmar">
+           
+        </form>
+    </section>
+
 </body>
 
 </html>

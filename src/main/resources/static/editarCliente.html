@@ -18,7 +18,7 @@
             <div class="menu-list">
                
                 <a href="index.html" id="navHome">Início</a>
-                <a href="#" id="navServ">Serviços</a>
+                <!-- <a href="#" id="navServ">Serviços</a> -->
 
                 <div class="dropdown">
                     <button class="dropbtn" id="navHowItWork">Como funciona?</button>
@@ -31,7 +31,7 @@
                 <div class="dropdown">
                     <button class="dropbtn" id="navAdm">Administrador</button>
                     <div class="dropdown-content">
-                        <a href="listaClientes.html" id="navClients">Clientes</a>
+                                   <a href="listaClientes.html" id="navClients">Clientes</a>
                         <a href="processo.html" id="navProcesses">Processos</a>
                         <a href="pagamento.html" id="navPayments">Pagamentos</a>
                     </div>
@@ -42,58 +42,17 @@
                         <option value="pt" id="navOptionPt">Português</option>
                         <option value="en" id="navOptionEn">Inglês</option>
                         <option value="es" id="navOptionEs">Espanhol</option>
-                        <!-- <option>Francês</a> 
-                        <option>Persa</a>-->
                         </select>
                 </div>
                 
             </div>
             <div class="auth-links">
-                <a class="login" id="accountLink" href="account.html">Minha conta</a>
+                <!-- <a class="login" id="accountLink" href="account.html">Minha conta</a> -->
                 <a class="login" id="loginLink" href="login.html">Entrar</a>
             </div>
         </nav>
     </header>
-    <!-- <header>
-        <nav class="menu">
-            <a class="logo">WELCOME2BRAZIL</a>
-            <div class="menu-list">
-               
-                <a href="index.html">Início</a>
-                <a href="#">Serviços</a>
-                <a href="#">Contato</a>
-
-                <div class="dropdown">
-                    <button class="dropbtn">como funciona?</button>
-                    <div class="dropdown-content">
-                        <a href="docExigidos.html">Documentos</a>
-                        <a href="lerContrato.html">Contrato</a>
-                    </div>
-                </div>
-
-                <div class="dropdown">
-                    <button class="dropbtn">Administrador</button>
-                    <div class="dropdown-content">
-                        <a href="#">Clientes</a>
-                        <a href="processo.html">Processos</a>
-                        <a href="pagamento.html">Pagamentos</a>
-                    </div>
-                </div>
-
-                <div class="dropdown" >
-                    <select onchange="event" id="select">
-                        <option value="pt">Português</option>
-                        <option value="en">Inglês</option>
-                        <option value="es">Espanhol</option>
-                         <option>Francês</a> 
-                        <option>Persa</a>
-                        </select>
-                </div>
-                
-            </div>
-            <a class="login" href="login.html">Entrar</a>
-        </nav>
-    </header> -->
+ 
 
 	<h1>Edit Client</h1>
 	   <form id="editClientForm">
@@ -118,7 +77,7 @@
 	       <button type="submit">Save</button>
 	   </form>
 	   <script>
-	          const baseUrl = 'http://localhost:8080/clients'; // Altere a URL conforme necessário
+	          const baseUrl = 'http://localhost:8080/clients'; 
 
 	          document.addEventListener('DOMContentLoaded', async () => {
 	              const urlParams = new URLSearchParams(window.location.search);
@@ -137,7 +96,7 @@
 	                    
 	                      document.getElementById('clientId').value = client.id;
 	                  } catch (error) {
-	                      console.error('Error fetching client data:', error);
+	                      console.error('Erro ao buscar dados:', error);
 	                  }
 	              }
 
@@ -163,16 +122,16 @@
 	                          });
 
 	                          if (response.ok) {
-	                              alert("Client updated successfully");
-	                              window.location.href = 'index.html';
+	                              alert("Cliente atualizado com sucesso.");
+	                              window.location.href = 'listaClientes.html';
 	                          } else {
-	                              alert("Failed to update client");
+	                              alert("Falha ao atualizar cliente.");
 	                          }
 	                      } catch (error) {
-	                          console.error('Error updating client:', error);
+	                          console.error('Erro ao atualizar cliente:', error);
 	                      }
 	                  } else {
-	                      alert("All fields are required");
+	                      alert("É necessario preencher todos os campos");
 	                  }
 	              });
 	          });
